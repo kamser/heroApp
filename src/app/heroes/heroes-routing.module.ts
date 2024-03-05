@@ -32,6 +32,10 @@ const routes: Routes = [
         path: ':id',
         component: HeroPageComponent
       },
+      { //this one is to redirect in case the user tries a diferent path
+        path: '**',
+        redirectTo: 'list'
+      },
     ]
   }
 ];
