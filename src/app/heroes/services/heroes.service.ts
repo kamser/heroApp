@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Hero } from '../interfaces/hero.interface';
 
 @Injectable({providedIn: 'root'})
-export class ServiceNameService {
+export class HeroesService {
 
   private baseUrl: string = enviroments.baseUrl;
 
