@@ -17,7 +17,7 @@
     },
     {
       "id": "dc-superman",
-      "superhero": "Superman",
+      "superhero": "Superman twins",
       "publisher": "DC Comics",
       "alter_ego": "Kal-El",
       "first_appearance": "Action Comics #1",
@@ -176,6 +176,15 @@
       "first_appearance": "DBZ",
       "characters": "Goku y Veggeta",
       "alt_img": "https://www.fayerwayer.com/resizer/Dq_YoEDDqPPuPa7ngsqi_ZyeJCA=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/DZHH4EQ7TFFZ3EQ7BGKTWVLOMU.jpg"
+    },
+    {
+      "id": "",
+      "superhero": "Veggeta",
+      "publisher": "Marverl comics",
+      "alter_ego": "veggito",
+      "first_appearance": "Tenkkaichi 3",
+      "characters": " Bulma",
+      "alt_img": "https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2023/12/Dragon-Ball-Por-que-Vegeta-se-dejo-poseer-por-Babidi-compressed.jpg"
     }
   ]
 }

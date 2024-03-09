@@ -1,5 +1,5 @@
 <h1>
-  Edit / Add
+  {{currentHeroFromForm.id ? 'Edit' : 'Create'}}
   Hero
   <small>Superman</small>
 </h1>
@@ -46,7 +46,7 @@
         </form>
 
         <mat-card-actions>
-          <button mat-flat-button color="warn">
+          <button *ngIf="currentHeroFromForm.id" mat-flat-button color="warn">
             <mat-icon>delete</mat-icon>
             Delete
           </button>
