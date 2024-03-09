@@ -21,7 +21,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Kal-El",
       "first_appearance": "Action Comics #1",
-      "characters": "Kal-El"
+      "characters": "Kal-El",
+      "alt_img": "https://upload.wikimedia.org/wikipedia/en/d/d6/Superman_Man_of_Steel.jpg"
     },
     {
       "id": "dc-flash",
