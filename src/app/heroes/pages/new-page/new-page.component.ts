@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Publisher } from '../../interfaces/hero.interface';
+import { Hero, Publisher } from '../../interfaces/hero.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-new-page',
@@ -27,6 +28,13 @@ export class NewPageComponent {
     {id: 'DC Comics', desc: 'DC-Comics'},
     {id: 'Marverl comics', desc: 'Marvel-Studios'},
   ];
+
+  constructor(private heroService: HeroesService){}
+
+  get currentHeroFromForm(): Hero{
+    const hero = this.reactiveHeroForm.value as Hero;
+    return hero;
+  }
 
   onSubmit(): void{
     console.log({
