@@ -37,9 +37,19 @@ export class NewPageComponent {
   }
 
   onSubmit(): void{
-    console.log({
-      formIsValid: this.reactiveHeroForm.valid,
-      value: this.reactiveHeroForm.value,
-    })
+    if(this.reactiveHeroForm.invalid) return;
+
+    if(this.currentHeroFromForm.id){
+      this.heroService.updateHero(this.currentHeroFromForm)
+            .subscribe(hero => {
+              console.log(hero);
+            });
+      return;
+    }
+
+    this.heroService.addHero(this.currentHeroFromForm)
+          .subscribe(hero => {
+            //show the snacbar
+          })
   }
 }

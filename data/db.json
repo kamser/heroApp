@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "usuario": "John Doe",
       "email": "john.due@gmail.com"
     }
@@ -166,6 +166,15 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "id": "",
+      "superhero": "Goku",
+      "publisher": "DC Comics",
+      "alter_ego": "Kakaroto",
+      "first_appearance": "DBZ",
+      "characters": "Goku y Veggeta",
+      "alt_img": "https://www.fayerwayer.com/resizer/Dq_YoEDDqPPuPa7ngsqi_ZyeJCA=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/DZHH4EQ7TFFZ3EQ7BGKTWVLOMU.jpg"
     }
   ]
 }
