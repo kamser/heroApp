@@ -27,4 +27,11 @@ export class NewPageComponent {
     {id: 'DC Comics', desc: 'DC-Comics'},
     {id: 'Marverl comics', desc: 'Marvel-Studios'},
   ];
+
+  onSubmit(): void{
+    console.log({
+      formIsValid: this.reactiveHeroForm.valid,
+      value: this.reactiveHeroForm.value,
+    })
+  }
 }

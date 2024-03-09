@@ -11,7 +11,7 @@
   <div class="col-12 sm:col-6">
     <mat-card>
       <mat-card-content>
-        <form class="grid" [formGroup]="reactiveHeroForm">
+        <form class="grid" [formGroup]="reactiveHeroForm" (submit)="onSubmit()">
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Super Hero</mat-label>
             <input type="text" matInput required formControlName="superhero">
@@ -51,7 +51,7 @@
             Delete
           </button>
           <span class="spacer"></span>
-          <button mat-flat-button color="primary">
+          <button mat-flat-button color="primary" (click)="onSubmit()">
             <mat-icon>save</mat-icon>
             Save
           </button>
