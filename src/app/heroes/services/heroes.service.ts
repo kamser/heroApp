@@ -38,10 +38,11 @@ export class HeroesService {
   }
 
   deleteHero(id: string): Observable<boolean>{
+    console.log(id);
     return this.http.delete(`${this.baseUrl}/heroes/${id}`)
             .pipe(
-              catchError(err => of(false)),
               map(resp => true), //This transform the response to a value that we need, whatever it return, it going to be a observable by default
+              catchError(err => of(false)), //The error capture has always to go at the end of the pipe's actions
             );
   }
 

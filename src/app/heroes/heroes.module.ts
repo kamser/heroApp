@@ -11,6 +11,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MaterialModule } from '../material/material.module';
 import { CardComponent } from './components/card/card.component';
 import { HeroImagePipe } from './pipes/hero-image.pipe';
+import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
 
 
 
@@ -22,7 +23,8 @@ import { HeroImagePipe } from './pipes/hero-image.pipe';
     NewPageComponent,
     SearchPageComponent,
     CardComponent,
-    HeroImagePipe, //the pipe HAS to be on the declarations array
+    HeroImagePipe,
+    DeleteDialogComponent, //the pipe HAS to be on the declarations array
   ],
   imports: [
     CommonModule,

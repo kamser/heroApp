@@ -46,7 +46,7 @@
         </form>
 
         <mat-card-actions>
-          <button *ngIf="currentHeroFromForm.id" mat-flat-button color="warn">
+          <button *ngIf="currentHeroFromForm.id" mat-flat-button color="warn" (click)="onDeleteHero()">
             <mat-icon>delete</mat-icon>
             Delete
           </button>

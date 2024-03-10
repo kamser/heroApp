@@ -3,8 +3,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { filter, switchMap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from '../../components/delete-dialog/delete-dialog.component';
 
 
 @Component({
@@ -33,7 +35,11 @@ export class NewPageComponent implements OnInit{
     {id: 'Marverl comics', desc: 'Marvel-Studios'},
   ];
 
-  constructor(private heroService: HeroesService, private activatedRoute: ActivatedRoute, private router: Router, private snackbar: MatSnackBar){}
+  constructor(private heroService: HeroesService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router,
+              private snackbar: MatSnackBar,
+              private dialog: MatDialog){}
 
 
   ngOnInit(): void {
@@ -71,6 +77,41 @@ export class NewPageComponent implements OnInit{
             this.router.navigate(['/heroes/edit', hero.id])
             this.showSnackbar(`${hero.superhero} created!`);
           })
+  }
+
+  onDeleteHero(){
+    if(!this.currentHeroFromForm.id) throw Error('Hero is required!');
+
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      data: this.reactiveHeroForm.value
+    });
+
+
+    /**
+     * What this does is first do all the actions on the pipe. the filter pipe what it does is check if the right side is true or false,
+     * in this case, for the firs filter, we expect a boolean response from the dialog, so I just check the value of the arriaval value.
+     * After the first filter, I do the delete, which is an Observer, but, it is on the pipe, so the pipe does an internal subscirbe and
+     * excute the logic of the deleteHero. The deleteHero return a boolean, so in the second filter I have to check again the incoming
+     * value, if it is true, it will continue to the subscribe, even with this one being out of the pipe, doesn't matter. But if the result is
+     * false, it will stop on the filter and not execute the next step, which in this case is the subscribe. So the order is: filter, switchMap, filter and subscribe.
+     */
+    dialogRef.afterClosed()
+        .pipe(
+          filter( (dialogChoice : boolean) => dialogChoice),
+          switchMap( (dialogChoice: boolean) => this.heroService.deleteHero(this.currentHeroFromForm.id) ),
+          filter( (wasDeleted: boolean) => wasDeleted),
+        )
+    .subscribe(result => {
+      this.router.navigate(['/heroes']);
+    });
+
+    /*dialogRef.afterClosed().subscribe(result => {
+      if(!result) return;
+
+      this.heroService.deleteHero(this.currentHeroFromForm.id);
+
+      this.router.navigate(['/heroes']);
+    });*/
   }
 
   showSnackbar(message: string): void{
