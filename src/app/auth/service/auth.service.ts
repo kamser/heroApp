@@ -15,7 +15,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   get currentUser(): User | undefined {
-    if(!this.currentUser) return undefined;
+    if(!this.user) return undefined;
 
     //return this.user; this is the wrong way, because here I am returning the reference to the object, which means that it can be mutable for external factors and I dont want that for the user.
     //return {...this.user}; this is a normal way to do it, because it will return a new object with the the data that the user has, but it is not a reference, so, they could do any changes over the returned object that non of them will affect the original object.

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../auth/service/auth.service';
+import { User } from '../../../auth/interfaces/user.interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout-page',
@@ -19,9 +21,14 @@ export class LayoutPageComponent {
     }
   ];
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
+
+  get user(): User | undefined{
+    return this.authService.currentUser;
+  }
 
   onLogout(){
     this.authService.logout();
+    this.router.navigate(['/auth/login']);
   }
 }
