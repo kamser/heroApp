@@ -39,9 +39,9 @@ export class AuthService {
     return this.http.get<User>(`${this.baseUrl}/users/1`)
                 .pipe(
                   tap((user: User) => this.user = user),
-                  map( (user: User) => !!user ),
+                  map( (user: User) => !!user ), //if the user exist, and we need to return a boolean value
                   catchError(err => of(false)),
-                )
+                );
 
     return true;
   }
