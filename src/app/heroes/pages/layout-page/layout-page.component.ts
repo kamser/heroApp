@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../../auth/service/auth.service';
 
 @Component({
   selector: 'app-layout-page',
@@ -17,4 +18,10 @@ export class LayoutPageComponent {
       label: 'Buscar', icon: 'search', url: './search'
     }
   ];
+
+  constructor(private authService: AuthService){}
+
+  onLogout(){
+    this.authService.logout();
+  }
 }
